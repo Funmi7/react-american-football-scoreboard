@@ -1,7 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 import "./App.css";
 
+
+
+
+
 const BottomRow = () => {
+
+const[quarterCount, setQuarterCount] = useState(0);
+const incrementQuarter = () => {
+  if (quarterCount < 4) {
+    setQuarterCount(quarterCount + 1);
+  } else {
+      setQuarterCount(quarterCount);
+    }
+}
+
   return (
     <div className="bottomRow">
       <div className="down">
@@ -18,9 +32,10 @@ const BottomRow = () => {
       </div>
       <div className="quarter">
         <h3 className="quarter__title">Quarter</h3>
-        <div className="quarter__value">4</div>
+        <div className="quarter__value">{quarterCount}</div>
+        <button onClick={incrementQuarter} className="buttons">Quarter</button>
       </div>
-    </div>
+    </div>    
   );
 };
 
